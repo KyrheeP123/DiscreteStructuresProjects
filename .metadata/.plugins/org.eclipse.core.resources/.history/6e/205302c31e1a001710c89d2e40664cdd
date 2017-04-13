@@ -1,0 +1,79 @@
+package graphProject;
+import java.util.*;
+import java.io.*;
+
+public abstract class AbstractGraph implements Graph {
+	//number of vertices
+	private  int numV;
+	
+	//boolean for directed graph
+	private boolean directed;
+	
+	//Constructors
+	
+	public AbstractGraph(int numV, boolean directed){
+		this.numV = numV;
+		this.directed = directed; 
+	}
+	
+	//Accessor Methods
+	
+	public int getNumV(){
+		return numV;
+	}
+	
+	public boolean isDirected(){
+		return directed;
+	}
+	
+
+	public void loadEdgesFromFile(Scanner scan){
+		
+		String fileName = "/Users/Kyeezus/Desktop/testEdgeFile";
+		try{
+			//Scanner that reads through file
+			Scanner scan2 = new Scanner (new FileReader(fileName));
+			
+			int numV = scan2.nextInt();
+			
+			
+			int source = 0;
+			int dest;
+			
+			while (source >= 0) {
+				source = scan2.nextInt();
+				
+				if(source < 0){
+					break; 
+				}
+				
+				dest = scan2.nextInt();
+				Edge edge = new Edge(source,dest);
+				insert(edge);
+				edge.toString();
+				//Print out 
+				//System.out.println("Source" + " " + source + " " + "Dest" + " " +dest);
+			}
+		}
+		
+		catch (IOException ex){
+			System.out.println(ex.getMessage());
+			System.exit(0);
+		}
+	}
+	
+	
+	public static Graph createGraph(Scanner scan, boolean isDirected, String type){
+		int NumV = scan.nextInt();
+		AbstractGraph returnValue = null;
+		
+		if(type.equalsIgnoreCase("Matrix")) returnValue = new MatrixGraph(NumV, isDirected);
+		else if(type.equalsIgnoreCase("List")) returnValue = new ListGraph(NumV, isDirected);
+		else throw new IllegalArgumentException();
+		returnValue.loadEdgesFromFile(scan);
+		return returnValue;
+		
+
+	}
+		
+}

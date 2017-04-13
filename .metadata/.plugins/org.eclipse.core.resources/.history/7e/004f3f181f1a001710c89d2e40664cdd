@@ -1,0 +1,87 @@
+package graphProject;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args){
+		String fileName = "/Users/Kyeezus/Desktop/testEdgeFile";
+		//Scanner scan2 = new Scanner (new FileReader(fileName));
+		Scanner scan = new Scanner(System.in);
+		Graph myGraph = AbstractGraph.createGraph(scan, true, "List");
+		
+		/*Graph myGraph = AbstractGraph.createGraph(scan, true, "List");
+		
+		String edge1 = myGraph.getEdge(1, 4).toString();
+		edge1 = myGraph.getEdge(2, 4).toString();
+		String edge2 = myGraph.getEdge(4, 4).toString();
+		String edge3 = myGraph.getEdge(4, 2).toString();
+		
+		System.out.println("First Edge" + edge1);
+		System.out.println("Second Edge" + edge2);
+		System.out.println("Third Edge" + edge3);*/
+		
+		/*Graph myGraph = AbstractGraph.createGraph(scan, true, "List");
+		String test1 = myGraph.getEdge(1, 4).toString();
+		String test2 = myGraph.getEdge(4, 1).toString();
+		
+		System.out.println("Test1 " + test1);
+		System.out.println("Test2 " + test2);
+		
+		System.out.println("Iterator Starting");
+		Iterator<Edge> iter= myGraph.edgeIterator(0);
+		
+		while(iter.hasNext()){
+			System.out.println(iter.next().toString());
+		}*/
+		
+		//String fileName = "/Users/Kyeezus/Desktop/testEdgeFile";
+		
+		/*try{
+			//Scanner that reads through file
+			Scanner scan2 = new Scanner (new FileReader(fileName));
+			
+			int numV = scan2.nextInt();
+			
+			
+			int source = 0;
+			int dest;
+			
+			while (source >= 0) {
+				source = scan2.nextInt();
+				dest = scan2.nextInt();
+				
+				//Print out 
+				System.out.println("Source" + " " + source + " " + "Dest" + " " +dest);
+			}
+			
+			scan2.close();
+			
+			Graph myGraph = AbstractGraph.createGraph(scan2, true, "List");
+			String test1 = myGraph.getEdge(1, 4).toString();
+			String test2 = myGraph.getEdge(4, 1).toString();
+			
+			System.out.println("Test1 " + test1);
+			System.out.println("Test2 " + test2);
+			
+			System.out.println("Iterator Starting");
+			Iterator<Edge> iter= myGraph.edgeIterator(0);
+			
+			while(iter.hasNext()){
+				System.out.println(iter.next().toString());
+			}
+		}
+		
+		catch (IOException ex){
+			System.out.println(ex.getMessage());
+			System.exit(0);
+		}*/
+		
+		
+		
+	}
+	
+}
